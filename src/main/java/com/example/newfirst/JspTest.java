@@ -12,11 +12,13 @@ public class JspTest {
     @Resource(name="com.example.newfirst.board.mapper.BoardMapper")
     BoardMapper mBoardMapper;
 
+
     @RequestMapping("/test")
     private String jspTest() throws Exception {
 
         System.out.println("testsetsetsetsetse");
         System.out.println(mBoardMapper.boardCount()); // <<<<TEST
+        System.out.println("dddddddddddddddddddddd");
 
         return "test"; //생성한 jsp이름 (test.jsp)
     }

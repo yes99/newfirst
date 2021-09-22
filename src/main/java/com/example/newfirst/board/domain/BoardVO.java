@@ -3,11 +3,14 @@ package com.example.newfirst.board.domain;
 public class BoardVO {
 
     private int id;
-    private String Date;
+    private String date;
     private String title;
     private String assign;
     private String perform;
     private String fail;
+
+
+
 
     public int getId() {
         return id;
@@ -18,12 +21,9 @@ public class BoardVO {
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
-
-    public void setDate(String date) {
-        Date = date;
-    }
+    public void setDate(String date) {this.date = date;}
 
     public String getTitle() {
         return title;
