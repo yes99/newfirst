@@ -33,6 +33,7 @@
       <button type="submit" class="btn btn-primary">수정</button>
     </form>
 </div>
+<button class="btn btn-danger" onclick="location.href='/list'">리스트</button>  <!-- 추가 -->
 
 <%@ include file="bootstrap.jsp" %>
 

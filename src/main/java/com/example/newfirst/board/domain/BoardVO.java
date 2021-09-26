@@ -9,9 +9,6 @@ public class BoardVO {
     private String perform;
     private String fail;
 
-
-
-
     public int getId() {
         return id;
     }

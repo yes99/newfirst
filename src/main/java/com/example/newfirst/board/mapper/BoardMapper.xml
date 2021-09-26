@@ -10,10 +10,13 @@
         FROM Board
     </select>
 
-    <select id="boardList" resultType="com.example.newfirst.board.domain.BoardVO">
+    <select id="boardList" resultType="com.example.newfirst.board.domain.BoardVO"  parameterType="com.example.newfirst.board.domain.BoardVO">
         SELECT
         *
         FROM BOARD
+        ORDER BY id DESC
+        LIMIT #{pageStart}, #{perPageNum}
+
     </select>
 
     <select id="boardDetail" parameterType="int" resultType="com.example.newfirst.board.domain.BoardVO">

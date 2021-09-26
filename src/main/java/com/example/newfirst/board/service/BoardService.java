@@ -9,15 +9,20 @@ import org.springframework.stereotype.Service;
 import com.example.newfirst.board.domain.BoardVO;
 import com.example.newfirst.board.mapper.BoardMapper;
 
-@Service("com.example.newfirst.board.service.BoardService")
+@Service("com.example.newfirst.board.service.BoardService") // 서비스 클래스 입니다
 public class BoardService {
 
     @Resource(name="com.example.newfirst.board.mapper.BoardMapper")
     BoardMapper mBoardMapper;
 
-    public List<BoardVO> boardListService() throws Exception{
+    public int boardCount() throws Exception{
 
-        return mBoardMapper.boardList();
+        return mBoardMapper.boardCount();
+    }
+
+    public List<BoardVO> boardListService(Criteria cri) throws Exception{
+
+        return mBoardMapper.boardList(cri);
     }
 
     public BoardVO boardDetailService(int id) throws Exception{
