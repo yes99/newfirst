@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.newfirst.board.mapper.BoardMapper">
+    <select id="boardCount" resultType="Integer">
+        SELECT
+        COUNT(*)
+        FROM Board
+    </select>
+
+    <select id="boardList" resultType="com.example.newfirst.board.domain.BoardVO"  parameterType="com.example.newfirst.board.domain.BoardVO">
+        SELECT
+        *
+        FROM BOARD
+        ORDER BY id DESC
+        LIMIT #{pageStart}, #{perPageNum}
+
+    </select>
+
+    <select id="boardDetail" parameterType="int" resultType="com.example.newfirst.board.domain.BoardVO">
+        SELECT
+        *
+        FROM BOARD
+        WHERE
+        id = #{id}
+    </select>
+
+    <insert id="boardInsert" parameterType="com.example.newfirst.board.domain.BoardVO">
+        INSERT INTO
+        BOARD ( title, date, assign,perform, fail)
+        VALUES (#{title},#{date},#{assign},#{perform},#{fail})
+    </insert>
+
+    <update id="boardUpdate" parameterType="com.example.newfirst.board.domain.BoardVO">
+        UPDATE BOARD
+        SET
+        title = #{title},
+        assign = #{assign},
+        perform = #{perform},
+        fail = #{fail}
+
+
+        <!--if test="title != null">
+            title = #{title}
+        </if>
+        <if test="title != null and assign != null"> , </if>
+        <if test="assign != null">
+            assign = #{assign}
+        </if-->
+        WHERE id = #{id}
+    </update>
+
+    <delete id="boardDelete" parameterType="int">
+        DELETE FROM BOARD WHERE id = #{id}
+    </delete>
+
+</mapper>
+
+
